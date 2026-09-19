@@ -1,4 +1,7 @@
 # Rhythm Crossing
+
+<img width="909" height="454" alt="image" src="https://github.com/user-attachments/assets/deb1248f-deec-4a2a-88ac-c4da40cb1c0f" />
+
 This project was inspired by the VR game Beat Saber! Requires two devices: your phone and a laptop.
 Use your phone as a controller for a block-slicing rhythm game on your computer. After calibration, select a song and swing your phone to slice blocks in time with the music.
 

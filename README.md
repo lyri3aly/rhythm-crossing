@@ -1,6 +1,8 @@
 # Rhythm Crossing
+This project was inspired by the VR game Beat Saber! Requires two devices: your phone and a laptop.
+Use your phone as a controller for a block-slicing rhythm game on your computer. After calibration, select a song and swing your phone to slice blocks in time with the music.
 
-Phone-as-controller for a block-slicing rhythm game on your computer. Swing your phone to slice blocks in time with the music.
+### Download the latest release (v1), unzip the files, and open the game's folder in your code editor.
 
 ## Quick start
 
@@ -8,6 +10,10 @@ Phone-as-controller for a block-slicing rhythm game on your computer. Swing your
 npm install
 npm run dev
 ```
+if you don't have node js installed yet, follow the following steps:
+1. go to https://nodejs.org/en and install node
+2. verify its installation by running node -v, then npm -v in your terminal
+3. then, to run the project, use the two quick start commands above (install, run dev)
 
 Open **http://localhost:5173** on your computer, scan the QR code with your phone, and allow motion access.
 

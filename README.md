@@ -15,6 +15,7 @@ Use your phone as a controller for a block-slicing rhythm game on your computer.
 gameplay example
 
 ## access the live server web link at https://rhythm-crossing.onrender.com/
+### to play, please turn your phone towards the proper lane, and JAB your phone forward to simulate breaking the blocks. the game doesn't work simply by turning your phone left, center, or right, you also have to MOVE AND JAB YOUR PHONE FORWARD. if the lane changes are too sensitive, change the settings!
 
 ### alternatively, download the latest release (v1), unzip the files, and open the game's folder in your code editor. find instructions for downloading and using a local version after the features section.
 

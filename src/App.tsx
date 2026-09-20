@@ -24,7 +24,7 @@ function AppRoutes() {
           onChooseMap={() => navigate('/choose-map')}
         />
       } />
-      <Route path="/game"           element={<HostPage />} />
+      <Route path="/game"           element={<HostPage onExit={() => navigate('/')} />} />
       <Route path="/controller/:sessionId" element={<ControllerPage />} />
       <Route path="/stats"          element={<StatsPage />} />
       <Route path="/settings"       element={<SettingsPage />} />

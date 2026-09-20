@@ -8,7 +8,7 @@ import os from 'os'
 import fs from 'fs'
 import path from 'path'
 
-const PORT = 5173
+const PORT = Number(process.env.PORT || 5173)
 let tunnelUrl = null
 
 // --- Collective motion aggregate ----------------------------------------------
@@ -385,7 +385,21 @@ async function start() {
     console.log(`  Motion profile updated - ${motionSessions.length} sessions, threshold ${threshold.toFixed(1)} deg/s from ${hitCount} hits`)
     res.json({ ok: true, dataPoints: motionSessions.length })
   })
+const isProduction = process.env.NODE_ENV === 'production'
 
+if (isProduction) {
+  const distPath = path.resolve('./dist')
+
+  app.use(express.static(distPath))
+
+  app.use((req, res, next) => {
+    if (req.method === 'GET' && !req.path.startsWith('/api/')) {
+      res.sendFile(path.join(distPath, 'index.html'))
+    } else {
+      next()
+    }
+  })
+} else {
   const vite = await createViteServer({
     server: {
       middlewareMode: true,
@@ -396,6 +410,7 @@ async function start() {
   })
 
   app.use(vite.middlewares)
+}
 
   httpServer.on('error', (err) => {
     if (err.code === 'EADDRINUSE') {
@@ -413,13 +428,18 @@ httpServer.listen(PORT, '0.0.0.0', () => {
     console.log(`  Local:   http://localhost:${PORT}`)
     console.log('  Tunnel:  starting public https link...')
 
-    startReliableTunnel(PORT)
-      .then((tunnel) => announceTunnel(tunnel))
-      .catch((err) => {
-        tunnelPending = false
-        console.log(`  Tunnel:  unavailable (${err.message})`)
-        console.log('  Restart the dev server to try again.')
-      })
+    if (process.env.NODE_ENV === 'production') {
+      console.log('  Production mode: no local tunnel needed.')
+    } else {
+      console.log('  Tunnel:  starting public https link...')
+      startReliableTunnel(PORT)
+        .then((tunnel) => announceTunnel(tunnel))
+        .catch((err) => {
+          tunnelPending = false
+          console.log(`  Tunnel:  unavailable (${err.message})`)
+          console.log('  Restart the dev server to try again.')
+        })
+    }
 
     console.log('')
   })

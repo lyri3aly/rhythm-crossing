@@ -113,7 +113,13 @@ export function HostPage({ onExit }: HostPageProps) {
     : ''
 
   const qrUrl =
-    network?.tunnelUrl && sessionId ? `${network.tunnelUrl}/controller/${sessionId}` : ''
+    sessionId
+      ? import.meta.env.PROD
+        ? `${window.location.origin}/controller/${sessionId}`
+        : network?.tunnelUrl
+          ? `${network.tunnelUrl}/controller/${sessionId}`
+          : ''
+      : ''
 
   const copyUrl = async () => {
     if (!qrUrl) return

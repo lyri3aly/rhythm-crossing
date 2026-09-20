@@ -1,4 +1,5 @@
 import { useCallback, useEffect, useRef, useState } from 'react'
+import { useNavigate } from 'react-router-dom'
 import type { Socket } from 'socket.io-client'
 import type { MotionData } from '../types/motion'
 import {
@@ -222,6 +223,7 @@ interface Props {
 }
 
 export function RhythmGame({ socketRef, connected, mapKey = DEFAULT_MAP }: Props) {
+  const navigate = useNavigate()
   const [phase, setPhase]             = useState<'idle' | 'calibrating' | 'playing' | 'done'>('idle')
   const [beatmap, setBeatmap]         = useState<Beatmap | null>(null)
   const [activeNotes, setActiveNotes] = useState<ActiveNote[]>([])
@@ -745,6 +747,9 @@ export function RhythmGame({ socketRef, connected, mapKey = DEFAULT_MAP }: Props
           <p className="rg-hint">tilt your phone to switch lanes, swing to hit</p>
           <button className="rg-start-btn" onClick={goToCalibration} disabled={!beatmap}>
             {'> play'}
+          </button>
+          <button className="rg-start-btn rg-start-btn--secondary" onClick={() => navigate('/')}>
+            {'<- back to menu'}
           </button>
         </div>
       )}

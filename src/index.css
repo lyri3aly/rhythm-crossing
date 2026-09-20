@@ -35,6 +35,20 @@ html.sabersync-playing #root {
   padding: 0;
 }
 
+/* Themed scrollbars (Chrome/Edge/Safari) */
+::-webkit-scrollbar { width: 10px; height: 10px; }
+::-webkit-scrollbar-track { background: transparent; }
+::-webkit-scrollbar-thumb {
+  background: #cdbf9a;            /* soft tan, matches cream theme */
+  border-radius: 999px;
+  border: 2px solid transparent;
+  background-clip: padding-box;
+}
+::-webkit-scrollbar-thumb:hover { background: #5db85c; } /* green accent on hover */
+
+/* Firefox */
+html { scrollbar-width: thin; scrollbar-color: #cdbf9a transparent; }
+
 button {
   font-family: 'Baloo 2', sans-serif;
   cursor: pointer;

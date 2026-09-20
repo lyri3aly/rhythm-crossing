@@ -14,7 +14,20 @@ Use your phone as a controller for a block-slicing rhythm game on your computer.
 
 gameplay example
 
-### Download the latest release (v1), unzip the files, and open the game's folder in your code editor.
+## access the live server web link at https://rhythm-crossing.onrender.com/
+
+### alternatively, download the latest release (v1), unzip the files, and open the game's folder in your code editor. find instructions for downloading and using a local version after the features section.
+
+## features:
+- time your movements to the beat while navigating the level
+- uses `DeviceMotion` and `DeviceOrientation` APIs for smartphone controls
+- converts physical device movement into in-game input
+- physically move your device to control your character
+- no installation required
+- designed around smartphone motion sensors
+- combines music, timing, and physical interaction
+- publicly accessible through Render
+- fun!
 
 ## Quick start
 

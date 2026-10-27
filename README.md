@@ -15,7 +15,7 @@ Use your phone as a controller for a block-slicing rhythm game on your computer.
 
 gameplay example
 
-## access the live server web link at https://rhythm-crossing.onrender.com/
+## access the live server web link at https://rhythm-crossing.dino.icu/
 
 ### alternatively, download the latest release (v1), unzip the files, and open the game's folder in your code editor. find instructions for downloading and using a local version after the features section.
 
